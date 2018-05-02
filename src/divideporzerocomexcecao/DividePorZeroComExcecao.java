@@ -42,15 +42,36 @@ public class DividePorZeroComExcecao {
                 
                 scanner.nextLine();
                 
-            } finally {
+            } /* finally {
                 
                 System.out.println ("Com ou sem excecao, esse codigo e executado!!!");
                 
             }
-            
+            */
         }
         
         return numero;
+        
+    }
+    
+    private static void imprimeResultado (int numerador, int denominador) {
+        
+        try {
+                
+            System.out.printf (
+                    "\n\nResultado: %d / %d = %d\n\n", 
+                    numerador, 
+                    denominador, 
+                    quocienteComExcecao (numerador, denominador)
+            );
+            
+            System.out.println ("\n\nCodigo executado sem erro!!!\n\n");
+
+        } catch (ArithmeticException e) {
+                
+            System.out.println ("Erro na divisao!!!");
+            
+        }
         
     }
 
@@ -58,11 +79,10 @@ public class DividePorZeroComExcecao {
         
         //Scanner scanner = new Scanner (System.in);
         //boolean continuaNoLaco = true;
-        int numerador = 0;
-        int denominador = 0;
-        
+        //int numerador = 0;
+        //int denominador = 0;
+/*        
         // Leitura do numerador
-        /*
         while (continuaNoLaco) {
             
             try {
@@ -70,6 +90,8 @@ public class DividePorZeroComExcecao {
                 System.out.print ("Numerador: ");
                 numerador = scanner.nextInt();
                 
+                // Se ocorrer InputMismatchException
+                // não executa essa linha!!!
                 continuaNoLaco = false;
             
             } catch (InputMismatchException e) {
@@ -88,6 +110,7 @@ public class DividePorZeroComExcecao {
         while (continuaNoLaco) {
             
             try {
+            
                 
                 System.out.print ("Denominador: ");
                 denominador = scanner.nextInt();
@@ -103,31 +126,16 @@ public class DividePorZeroComExcecao {
             }
             
         }
-*/
-        
+
+*/        
         // Lê o numerador
-        numerador = leInteiro("Numerador:");
+        int numerador = leInteiro("Numerador:");
         
         // Lê o denominador
-        denominador = leInteiro("Denominador:");
+        int denominador = leInteiro("Denominador:");
         
-       try {
-                
-            System.out.printf (
-                    "\n\nResultado: %d / %d = %d\n\n", 
-                    numerador, 
-                    denominador, 
-                    quocienteComExcecao (numerador, denominador)
-            );
-            
-            System.out.println ("\n\nCódigo executado sem erro!!!\n\n");
-
-        } catch (ArithmeticException e) {
-                
-            System.out.println ("Erro na divisão!!!");
-                
-        }
-            
+        // Imprime o resultado
+        imprimeResultado (numerador, denominador);
         
     }
     
